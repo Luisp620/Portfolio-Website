@@ -1,0 +1,511 @@
+* {
+  box-sizing: border-box;      /* ensures padding and borders are included in element's total width/height */
+  margin: 0;                   /* reset default margin */
+  padding: 0;                  /* reset default padding */
+}
+
+/* ===== Global Dark Theme ===== */
+body {
+  background-color: #111;       /* deep black background */
+  color: #fff;                  /* white text for contrast */
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  padding-top: 80px;          /* space for fixed header */
+}
+
+section {
+  padding: 4rem 2rem;
+}
+
+h1, h2, h3 {
+  color: #fff;                  /* ensure headings pop */
+}
+
+p {
+  color: #ccc;                  /* softer white for body text */
+}
+
+/* ===== Header Container ===== */
+header {
+  background-color: #000000;       /* Sets a dark background behind the header */
+  color: #fff;                  /* Makes all text inside header white */
+  padding: 1rem 2rem;           /* Adds 1rem top/bottom and 2rem left/right spacing */
+  display: flex;                /* Enables flexbox to align children horizontally */
+  align-items: center;          /* Vertically centers h1 and nav */
+  justify-content: space-between; /* Puts space between the site title and nav */
+  position: fixed;
+  top: 0;
+  width: 100%;              /* Makes the header span the full width of the viewport */                   /* Positions the header at the top of the page */
+  z-index: 1000;            /* Ensures the header stays above other content */
+}
+
+header.scrolled {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.3s ease;
+}
+
+.cursor {
+  display: inline-block;
+  font-weight: 300;
+  font-size: 2.5rem;
+  color: #007BFF;
+  animation: blink 0.8s steps(2, start) infinite;
+  margin-left: 0.2rem;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+/* ===== Navigation List ===== */
+nav ul {
+  list-style: none;          /* removes bullets */
+  display: flex;             /* lays out links horizontally */
+  gap: 2rem;                 /* space between each link */
+  margin: 0;                 /* reset default ul margin */
+  padding: 0;                /* reset default ul padding */
+}
+
+/* ===== Mobile Menu Toggle Button ===== */
+#menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Show button on small screens */
+@media (max-width: 768px) {
+  #menu-toggle {
+    display: block;
+  }
+
+  nav ul {
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  nav ul.active {
+    display: flex;
+  }
+}
+
+/* ===== Navigation Links ===== */
+nav a {
+  color: #fff;               /* white text */
+  text-decoration: none;     /* remove underlines */
+  font-weight: 500;          /* slightly bolder text */
+  transition: color 0.3s;    /* smooth color fade */
+}
+
+nav a:hover {
+  color: #007BFF;            /* blue accent on hover */
+}
+
+#name-link {
+  text-decoration: none;     /* removes underline */
+  color: #fff;               /* default white */
+  font-weight: 600;          /* bold but clean */
+  transition: color 0.3s ease;
+}
+
+#name-link:hover {
+  color: #007BFF;            /* your signature blue */
+}
+
+/* ===== About Me Section ===== */
+#about {
+ /* light gray behind the whole section */
+  background-color: #1e1e1e;
+  padding: 4rem 2rem;         /* generous vertical and horizontal spacing */
+  display: flex;              /* align image and text in a row */
+  align-items: center;  
+  text-align: center;      /* vertically center items */
+  gap: 3rem;                  /* space between image and content */
+}
+
+/* ===== Profile Image ===== */
+#about img {
+  width: 300px;               /* fixed width for consistency */
+  height: 300px;              /* fixed height to keep it square */
+  object-fit:cover;          /* crop the image to fill the box */
+  border-radius: 50%;         /* turn it into a perfect circle */
+  border: 5px solid #007BFF;  /* blue accent border around the photo */
+}
+
+/* ===== About Content ===== */
+
+#about h2 {
+  display: block;           /* ensure it takes full width */
+  font-size: 2rem;            /* clear, prominent heading */
+  color: #ffffff;                /* dark charcoal title color */
+  margin-bottom: 1.5rem;        /* space below heading */
+}
+
+#about p {
+  color: #c2c2c2;                /* medium gray text for readability */
+  line-height: 1.6;           /* improve paragraph legibility */
+}
+
+/* ===== Projects Section Container ===== */
+#projects {
+  background-color: #000000;  /* light gray behind the whole section */
+  padding: 4rem 2rem;      
+  display: grid;           
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));  
+  gap: 2rem;               
+  align-items: start;      
+}
+
+/* Make the heading span the full width of the grid */
+#projects > h2 {
+  grid-column: 1 / -1;     
+  font-size: 2.5rem;       
+  color: #fff;             
+  text-align: center;      
+  margin-bottom: 2rem;     
+}
+
+/* ===== Project Cards ===== */
+#projects article {
+  background-color: #f9f9f9;                    
+  border-radius: 8px;                           
+  padding: 2rem;                                
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);      
+  transition: transform 0.3s, box-shadow 0.3s;   
+}
+
+#projects article:hover {
+  transform: translateY(-5px);                   
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);    
+}
+
+#projects article h3 {
+  font-size: 1.5rem;          
+  color: #007BFF;             
+  margin-bottom: 1rem;        
+}
+
+#projects article p {
+  color: #555;                
+  line-height: 1.6;           
+}
+
+/* ===== Skills Section ===== */
+#skills {
+  background-color: #1e1e1e;        /* dark gray backdrop for emphasis */
+  color: #fff;                      /* white text for contrast */
+  padding: 4rem 2rem;               /* vertical and horizontal spacing */
+  text-align: center;               /* center heading and list */
+}
+
+#skills h2 {
+  font-size: 2.5rem;                /* large section title */
+  margin-bottom: 2rem;              /* space below heading */
+}
+
+#skills ul {
+  display: flex;                    /* arrange skills in a row */
+  flex-wrap: wrap;                  /* allow wrapping on small screens */
+  justify-content: center;          /* center the skill items */
+  gap: 1.5rem;                      /* space between each skill */
+  list-style: none;                 /* remove default bullets */
+  padding: 0;                       /* reset default padding */
+}
+
+#skills li {
+  background-color: #000000;           /* slightly darker tile for each skill */
+  padding: 1rem 1.5rem;             /* comfortable click/tap area */
+  border-radius: 6px;               /* rounded corners */
+  font-weight: 500;                 /* semi-bold labels */
+  min-width: 120px;   
+  transition: color 1s;              /* uniform sizing baseline */
+}
+
+#skills li:hover {
+  background-color: #007BFF;        /* blue highlight on hover */
+  color: #fff;                      /* white text for contrast */                  /* pointer cursor for interactivity */
+}
+
+/* ===== Certification Section ===== */
+#certification {
+  background-color: #000000;        /* same gray tone for consistency */
+  color: #fff;                      
+  padding: 4rem 2rem;               
+  text-align: center;               
+}
+
+#certification h2 {
+  font-size: 2.5rem;                
+  margin-bottom: 1.5rem;            
+}
+
+#certification p {
+  max-width: 600px;                 /* limit line length for readability */
+  margin: 0 auto;                   /* center the paragraph */
+  line-height: 1.6;                 
+  color: #ccc;                      /* softer white for body text */
+}
+
+#certification a {
+  display: inline-block;            /* make it a block for better click area */
+  margin-top: 1rem;                 /* space above the link */
+  padding: 0.75rem 1.5rem;          /* comfortable padding */
+  background-color: #007BFF;        /* blue button */
+  color: #fff;                      /* white text */
+  text-decoration: none;             /* remove underline */
+  border-radius: 4px;               /* rounded corners */
+  transition: background-color 0.3s;/* smooth hover effect */
+}
+
+#certification a:hover {
+  background-color: #0056b3;        /* darker blue on hover */
+}
+
+/* ===== Information Section ===== */
+#info {
+  background-color: #222;        /* same gray tone for consistency */
+  color: #fff;                      
+  padding: 4rem 2rem;               
+  text-align: center;               
+}
+
+#info h2 {
+  font-size: 2.5rem;                
+  margin-bottom: 1.5rem;            
+}
+
+#info p {
+  max-width: 600px;                 /* limit line length for readability */
+  margin: 0 auto;                   /* center the paragraph */
+  line-height: 1.6;                 
+  color: #ccc;                      /* softer white for body text */
+}
+
+#info .button a {
+  display: inline-block;            /* make it a block for better click area */
+  margin-top: 1rem;                 /* space above the link */
+  padding: 0.75rem 1.5rem;          /* comfortable padding */
+  background-color: #007BFF;        /* blue button */
+  color: #fff;                      /* white text */
+  text-decoration: none;             /* remove underline */
+  border-radius: 4px;               /* rounded corners */
+  transition: background-color 0.3s;/* smooth hover effect */
+}
+
+.button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #007BFF;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+/* ===== Footer ===== */
+footer {
+  background-color: #1e1e1e;       /* dark footer background */
+  color: #fff;                      /* white text for contrast */
+  text-align: center;               /* center footer content */
+  padding: 2rem;                    /* vertical spacing */
+}
+
+/* ===== Scroll-to-Top Button ===== */
+#scroll-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  padding: 0.75rem 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  display: none; /* hidden by default */
+  z-index: 1000;
+  transition: opacity 0.3s;
+}
+
+#scroll-top.show {
+  display: block;
+}
+
+#scroll-top:hover {
+  transform: scale(1.2);
+  background-color: #3399FF;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* ===== Contact Section ===== */
+
+#contact {
+  background-color: #000000;
+  color: #fff;
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+#contact form {
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+#contact label {
+  font-weight: 500;
+  text-align: left;
+}
+
+#contact input,
+#contact textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+#contact button {
+  align-self: flex-start;
+  background-color: #007BFF;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  align-self: center;
+}
+
+#contact button:hover {
+  background-color: #0056b3;
+}
+
+/* ===== Global Transition Defaults ===== */
+a, button, .button, #projects article, #skills li {
+  transition: all 0.3s ease;
+}
+
+/* ===== Link Hover & Focus ===== */
+a:hover,
+a:focus {
+  color: #007BFF;
+  outline: none; /* remove default outline */
+}
+
+a:focus-visible {
+  outline: 2px solid #007BFF; /* visible focus for keyboard users */
+  outline-offset: 2px;
+}
+
+/* ===== Button Hover & Focus ===== */
+.button:hover,
+.button:focus {
+  background-color: #0056b3;
+}
+
+.button:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+/* ===== Project Card Hover ===== */
+#projects article:hover,
+#projects article:focus-within {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== Skills Tile Hover ===== */
+#skills li:hover,
+#skills li:focus {
+  background-color: #007BFF;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* ===== Responsive: tablet and below ===== */
+@media (max-width: 768px) {
+  /* Header adjustments */
+  header {                    /* make header breathe on small screens */
+    flex-wrap: wrap;          /* allow h1 and nav to wrap onto two lines */
+    padding: 0.75rem 1rem;    /* slightly tighter padding on smaller screens */
+  }
+
+  header h1 {                 /* scale site title */
+    font-size: 1.25rem;       /* reduce title size for better fit */
+  }
+
+  nav ul {                    /* make nav fit and center */
+    width: 100%;              /* take full row under the title */
+    justify-content: center;  /* center the links */
+    flex-wrap: wrap;          /* allow links to wrap to a second line */
+    gap: 1rem;                /* tighter spacing between links */
+    margin-top: 0.5rem;       /* space between title and nav */
+  }
+
+  /* About section: stack + center */
+  #about {                    /* switch from row to column on small screens */
+    flex-direction: column;   /* stack heading, text, and image vertically */
+    gap: 1.5rem;              /* reduce spacing a bit */
+    padding: 3rem 1.25rem;    /* slightly tighter section padding */
+  }
+
+  #about img {                /* scale the portrait for small screens */
+    width: 200px;             /* shrink image to fit phones */
+    height: 200px;            /* keep it square for circular crop */
+  }
+
+  /* Projects Grid */
+  #projects {
+    grid-template-columns: 1fr;    /* single column on tablet */
+  }
+
+  /* Skills List */
+  #skills ul {
+    flex-direction: column;        /* stack skills vertically */
+    align-items: center;
+  }
+}
+
+/* ===== Responsive: Small Phones ===== */
+@media (max-width: 480px) {
+  body {
+    font-size: 0.95rem;             /* slightly smaller base font */
+  }
+
+  h1 {
+    font-size: 1.1rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  #about img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .button {
+    padding: 0.5rem 1rem;           /* smaller buttons */
+    font-size: 0.9rem;
+  }
+}
