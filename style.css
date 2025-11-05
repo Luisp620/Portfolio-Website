@@ -120,46 +120,43 @@ nav a:hover {
 }
 
 /* ===== About Me Section ===== */
+
 #about {
- /* light gray behind the whole section */
-  background-color: #1e1e1e;
-  padding: 4rem 2rem;         /* generous vertical and horizontal spacing */
-  display: flex;              /* align image and text in a row */
-  align-items: center;  
-  text-align: center;      /* vertically center items */
-  gap: 3rem;                  /* space between image and content */
+    background-color: #1e1e1e;
+    padding: 4rem 2rem;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    gap: 3rem;
 }
 
-.about-text {
-  text-align: center;
-  max-width: 600px;
+#about img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid #007BFF;
 }
 
-.about-text h2 {
-  margin-bottom: 2rem;
+#about h2 {
+    display: block;
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 1.5rem;
 }
 
-/* ===== Profile Image ===== */
+#about p {
+    color: #c2c2c2;
+    line-height: 1.6;
+}
+
+
 #about img {
   width: 300px;               /* fixed width for consistency */
   height: 300px;              /* fixed height to keep it square */
   object-fit:cover;          /* crop the image to fill the box */
   border-radius: 50%;         /* turn it into a perfect circle */
   border: 5px solid #007BFF;  /* blue accent border around the photo */
-}
-
-/* ===== About Content ===== */
-
-#about h2 {
-  display: block;           /* ensure it takes full width */
-  font-size: 2rem;            /* clear, prominent heading */
-  color: #ffffff;                /* dark charcoal title color */
-  margin-bottom: 1.5rem;        /* space below heading */
-}
-
-#about p {
-  color: #c2c2c2;                /* medium gray text for readability */
-  line-height: 1.6;           /* improve paragraph legibility */
 }
 
 /* ===== Projects Section Container ===== */
